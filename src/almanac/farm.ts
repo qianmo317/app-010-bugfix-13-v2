@@ -135,8 +135,8 @@ export function getFarmTip(term: string): FarmTip | undefined {
 }
 
 export function getAllFarmTips(): FarmTip[] {
-  const orderedTerms = SOLAR_TERMS.slice(2).concat(SOLAR_TERMS.slice(0, 2));
-  return orderedTerms.map(term => FARM_DATA[term]).filter(Boolean) as FarmTip[];
+  // SOLAR_TERMS 已按公历月份排列（小寒、大寒为一月），直接按序返回
+  return SOLAR_TERMS.map(term => FARM_DATA[term]).filter(Boolean) as FarmTip[];
 }
 
 // 根据日期获取农事提示
